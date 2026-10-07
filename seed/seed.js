@@ -1,6 +1,14 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const dns = require('dns');
+
+if (dns.setDefaultResultOrder) {
+    dns.setDefaultResultOrder('ipv4first');
+}
+try {
+    dns.setServers(['8.8.8.8', '1.1.1.1']);
+} catch (e) {}
 
 const User = require('../models/User');
 const Notice = require('../models/Notice');
@@ -17,8 +25,10 @@ const Report = require('../models/Report');
 async function seed() {
     try {
         console.log('Connecting to database...');
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campus_connect');
-        console.log('Connected to MongoDB!');
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campus_connect', {
+            tlsAllowInvalidCertificates: true
+        });
+        console.log('Connected to MongoDB Atlas!');
 
         console.log('Clearing existing database collections...');
         await Promise.all([
