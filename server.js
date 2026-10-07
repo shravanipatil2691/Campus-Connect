@@ -69,7 +69,10 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'super_secret_campus_connect_key',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campus_connect' }),
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campus_connect',
+        mongoOptions: { tlsAllowInvalidCertificates: true }
+    }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 } // 7 days
 }));
 
