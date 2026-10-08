@@ -15,11 +15,16 @@ const connectDB = async () => {
     try {
         const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campus_connect';
         const conn = await mongoose.connect(uri, {
-            tlsAllowInvalidCertificates: true
+            tlsAllowInvalidCertificates: true,
+            serverSelectionTimeoutMS: 5000
         });
         console.log(`MongoDB Atlas Connected: ${conn.connection.host}`);
     } catch (err) {
         console.error(`MongoDB Connection Error: ${err.message}`);
+        if (err.message.includes('whitelisted') || err.message.includes('Could not connect to any servers')) {
+            console.error(`\n[MongoDB Atlas IP Whitelist Required]:`);
+            console.error(`Please add your IP address to MongoDB Atlas -> Network Access -> Add IP Address -> 'Allow Access from Anywhere' (0.0.0.0/0).\n`);
+        }
         process.exit(1);
     }
 };

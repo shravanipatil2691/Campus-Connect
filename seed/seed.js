@@ -25,8 +25,10 @@ const Report = require('../models/Report');
 async function seed() {
     try {
         console.log('Connecting to database...');
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campus_connect', {
-            tlsAllowInvalidCertificates: true
+        const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/campus_connect';
+        await mongoose.connect(uri, {
+            tlsAllowInvalidCertificates: true,
+            serverSelectionTimeoutMS: 5000
         });
         console.log('Connected to MongoDB Atlas!');
 
