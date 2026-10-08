@@ -508,20 +508,27 @@ html:not([data-theme="dark"]) .d-none-light { display: none !important; }
   padding: 0.7rem 1.6rem;
   border-radius: var(--radius-pill);
   box-shadow: 0 4px 16px rgba(37,99,235,0.25);
-  transition: all 0.3s var(--ease);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), opacity 0.2s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   text-decoration: none;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  user-select: none;
 }
 
 .btn-aurora:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(37,99,235,0.38);
   opacity: 0.96;
+}
+
+.btn-aurora:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(37,99,235,0.2);
 }
 
 .btn-aurora-secondary {
@@ -532,12 +539,16 @@ html:not([data-theme="dark"]) .d-none-light { display: none !important; }
   font-size: 0.95rem;
   padding: 0.7rem 1.6rem;
   border-radius: var(--radius-pill);
-  transition: all 0.3s var(--ease);
+  transition: transform 0.2s var(--ease), border-color 0.2s ease, background-color 0.2s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
+  user-select: none;
 }
 
 .btn-aurora-secondary:hover {
@@ -547,6 +558,10 @@ html:not([data-theme="dark"]) .d-none-light { display: none !important; }
   transform: translateY(-2px);
 }
 
+.btn-aurora-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
 .btn-aurora-soft {
   background: var(--surface-2);
   color: var(--primary) !important;
@@ -554,15 +569,23 @@ html:not([data-theme="dark"]) .d-none-light { display: none !important; }
   font-weight: 600;
   border-radius: var(--radius-pill);
   padding: 0.45rem 1.1rem;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
 .btn-aurora-soft:hover {
   background: rgba(37,99,235,0.12);
   border-color: rgba(37,99,235,0.25);
   color: var(--primary-600) !important;
+}
+.btn-aurora-soft:active {
+  transform: scale(0.97);
 }
 
 /* Floating Form Inputs */
@@ -584,6 +607,31 @@ html:not([data-theme="dark"]) .d-none-light { display: none !important; }
   border-color: var(--primary);
   color: var(--text);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+/* Password Toggle Eye Icon */
+.toggle-password {
+  position: absolute !important;
+  right: 0.75rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.25rem 0.5rem !important;
+  color: var(--muted) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: color 0.2s ease !important;
+}
+
+.toggle-password:hover {
+  color: var(--primary) !important;
+  background: transparent !important;
+  transform: translateY(-50%) !important;
 }
 
 .form-floating > label {

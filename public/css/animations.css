@@ -128,6 +128,50 @@
   transform: translateY(0);
 }
 
+/* 5. Ripple Micro-interaction Styling */
+.btn-aurora,
+.btn-aurora-secondary,
+.btn-aurora-soft,
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:not(.position-absolute) {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  animation: rippleExpand 0.55s ease-out forwards;
+  pointer-events: none !important;
+  z-index: 5;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+.btn-aurora-secondary .ripple-effect,
+.btn-aurora-soft .ripple-effect,
+.btn-outline-primary .ripple-effect,
+.btn-light .ripple-effect {
+  background: rgba(37, 99, 235, 0.22);
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
 /* 5. Prefers-Reduced-Motion Override */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

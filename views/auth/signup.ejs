@@ -100,14 +100,20 @@
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <div class="form-floating position-relative">
-                            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="Password" required>
+                            <input type="password" name="password" class="form-control pe-5" id="passwordInput" placeholder="Password" required>
                             <label for="passwordInput">Password</label>
+                            <button type="button" class="btn btn-sm text-muted toggle-password" data-target="#passwordInput" aria-label="Toggle Password Visibility">
+                                <i class="bi bi-eye fs-6"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating position-relative">
-                            <input type="password" name="confirmPassword" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password" required>
+                            <input type="password" name="confirmPassword" class="form-control pe-5" id="floatingConfirmPassword" placeholder="Confirm Password" required>
                             <label for="floatingConfirmPassword">Confirm Password</label>
+                            <button type="button" class="btn btn-sm text-muted toggle-password" data-target="#floatingConfirmPassword" aria-label="Toggle Password Visibility">
+                                <i class="bi bi-eye fs-6"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="col-12">

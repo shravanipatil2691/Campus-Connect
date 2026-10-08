@@ -7,14 +7,20 @@
         <p class="text-secondary-custom small mb-4">Enter your new secure password below</p>
 
         <form action="/auth/reset/<%= token %>" method="POST">
-            <div class="form-floating mb-3 text-start">
-                <input type="password" name="password" class="form-control" id="newPass" placeholder="New Password" required>
+            <div class="form-floating mb-3 text-start position-relative">
+                <input type="password" name="password" class="form-control pe-5" id="newPass" placeholder="New Password" required>
                 <label for="newPass">New Password</label>
+                <button type="button" class="btn btn-sm text-muted toggle-password" data-target="#newPass" aria-label="Toggle Password Visibility">
+                    <i class="bi bi-eye fs-6"></i>
+                </button>
             </div>
 
-            <div class="form-floating mb-4 text-start">
-                <input type="password" name="confirmPassword" class="form-control" id="confirmNewPass" placeholder="Confirm New Password" required>
+            <div class="form-floating mb-4 text-start position-relative">
+                <input type="password" name="confirmPassword" class="form-control pe-5" id="confirmNewPass" placeholder="Confirm New Password" required>
                 <label for="confirmNewPass">Confirm New Password</label>
+                <button type="button" class="btn btn-sm text-muted toggle-password" data-target="#confirmNewPass" aria-label="Toggle Password Visibility">
+                    <i class="bi bi-eye fs-6"></i>
+                </button>
             </div>
 
             <button type="submit" class="btn btn-aurora btn-shine w-100 py-3 justify-content-center mb-3">
